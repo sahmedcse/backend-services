@@ -10,6 +10,16 @@ var server = app.listen(process.env.PORT || 3000, function() {
   console.log("Server running on port", port);
 });
 
+app.get("/email", function(request, response) {
+  var emailJson = request.body;
+  console.log("JsonObj ", emailJson);
+
+  sendEmail(emailJson);
+
+  response.status(200).json({"hello" : "Hi"});
+
+});
+
 app.post("/email", function(request, response) {
   var emailJson = request.body;
   console.log("JsonObj ", emailJson);
