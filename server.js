@@ -27,7 +27,7 @@ function sendEmail(emailJson) {
   var content = new email.Content("text/plain", emailJson.emailContent);
   var mail = new email.Mail(emailFrom, subject, emailTo, content);
 
-  var sg = require('sendgrid').SendGrid("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");
+  var sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY);
 
   var requestBody = mail.toJSON();
   var request = sg.emptyRequest();
