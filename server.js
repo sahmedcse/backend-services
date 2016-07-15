@@ -16,7 +16,7 @@ app.get("/email", function(request, response) {
 
   sendEmail(emailJson);
 
-  response.status(200).json({"hello" : "Hi"});
+  response.status(200).send("Hello");
 
 });
 
