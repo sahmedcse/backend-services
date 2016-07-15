@@ -20,13 +20,6 @@ app.get("/", function(request, response) {
 
 });
 
-app.get("/port", function(request, response) {
-  var port = server.address().port;
-  console.log("Server running on port", port);
-  response.status(200).json({"port" : port});
-
-});
-
 app.post("/email", function(request, response) {
   var emailJson = request.body;
   console.log("JsonObj ", emailJson);
