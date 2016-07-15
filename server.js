@@ -16,7 +16,14 @@ app.get("/", function(request, response) {
 
   sendEmail(emailJson);
 
-  response.status(200).send("Helloa");
+  response.status(200).send("Hello");
+
+});
+
+app.get("/port", function(request, response) {
+  var port = server.address().port;
+  console.log("Server running on port", port);
+  response.status(200).json({"port" : port});
 
 });
 
