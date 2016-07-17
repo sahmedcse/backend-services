@@ -32,7 +32,7 @@ app.post("/email", function(request, response) {
 
 function sendEmail(emailJson) {
   var emailFrom = new email.Email(emailJson.emailFrom);
-  var emailTo = new email.Email(emailJson.emailTo);
+  var emailTo = new email.Email(process.env.EMAIL_TO);
   var subject = emailJson.subject;
   var content = new email.Content("text/plain", emailJson.emailContent);
   var mail = new email.Mail(emailFrom, subject, emailTo, content);
