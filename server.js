@@ -4,12 +4,13 @@ var app = express();
 var email = require('sendgrid').mail;
 
 app.use(bodyParser.json());
+
 app.use(function(request, response, next) {
   response.header("Access-Control-Allow-Origin", "*");
   response.header("Access-Control-Allow-Methods", "POST");
   response.header("Access-Control-Allow-Headers", "Content-Type");
   next();
-})
+});
 
 var server = app.listen(process.env.PORT || 3000, function() {
   var port = server.address().port;
